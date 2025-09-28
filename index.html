@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Programas</title>
+  <link rel="stylesheet" href="styles/styleportal.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Portal de Programas</h1>
+    <p>Bienvenido al portal de programas.<br>
+       Selecciona una de las opciones:</p>
+
+<div class="button-grid">
+  <a href="#" class="btn" onclick="inicio()">Inicio</a>
+  <!-- aqui solo debes sustituir el nombre de tu carpeta, y el nombre de tu archivo html 
+   por ejemplo el mio es calculadora/index.html, calculadora es la carpeta y index es el nombre del programa-->
+  <a href="#" class="btn" onclick="mostrar('cuadrado/index.html')">Cuadrado</a>
+  <a href="#" class="btn" onclick="mostrar('nomina/nomina.html')">Nómina</a>
+  <a href="#" class="btn" onclick="mostrar('calculadora/index.html')">Calculadora</a>
+</div>
+
+    <div id="contenido" class="welcome">
+        <h2>¡Bienvenido!</h2>
+        <p>Regresaste a la página de inicio.<br>
+           Selecciona uno de los programas para continuar.</p>
+    </div>
+
+  </div>
+    <script src="script/script.js"></script>
+</body>
+</html>
