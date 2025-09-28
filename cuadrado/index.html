@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadrado</title>
+    <link rel="stylesheet" href="styles/stylecuadrado.css">
+</head>
+<body>
+   <form action="" name = "form1">
+        <label for="numero">Ingrese un numero:</label>
+        <input type="text" name = "numero" id = "numero" placeholder="Número">
+        <br><br>
+        <label for="">Resultado:</label>
+        <input type="text" name = "resultado" id = "resultado" placeholder="Resultado">
+        <br><br>
+        <button type="button" onclick = "cuadrado()">Calcular cuadrado</button>
+
+   </form> 
+</body>
+</html>
+<script>
+    function cuadrado(){
+        var num, rest;
+        num = document.form1.numero.value;
+        rest = num * num;
+        document.form1.resultado.value = rest;
+    }
+    function borrar(){
+        document.form1.numero.value;
+        document.form1.resultado.value = "";
+    }
+</script>

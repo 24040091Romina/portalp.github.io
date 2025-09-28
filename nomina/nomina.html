@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Nómina</title>
+  <link rel="stylesheet" href="styles/stylenomina.css">
+</head>
+<body>
+
+  <h2>Registro de Nómina</h2>
+
+  <form id="nominaForm">
+    <label>ID Empleado:</label>
+    <input type="text" id="idEmpleado">
+
+    <label>Nombre:</label>
+    <input type="text" id="nombre">
+
+    <label>Horas trabajadas (semana):</label>
+    <input type="number" id="horas" min="0">
+
+    <label>Costo por hora:</label>
+    <input type="number" id="costoHora" min="0" step="0.01">
+
+    <label>Horas Normales:</label>
+    <input type="text" id="horasNormales" readonly>
+
+    <label>Horas Extras:</label>
+    <input type="text" id="horasExtras" readonly>
+
+    <label>Subtotal:</label>
+    <input type="text" id="subtotal" readonly>
+
+    <label>ISPT (10%):</label>
+    <input type="text" id="ispt" readonly>
+
+    <label>Monto a Pagar:</label>
+    <input type="text" id="monto" readonly>
+
+    <div style="display:flex; justify-content: space-between;">
+      <button type="button" id="calcular" class="btn">Calcular</button>
+      <button type="reset" id="limpiar" class="btn btn-secondary">Limpiar</button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('calcular').addEventListener('click', function() {
+      const horas = parseFloat(document.getElementById('horas').value) || 0;
+      const costo = parseFloat(document.getElementById('costoHora').value) || 0;
+
+      const horasNormales = Math.min(40, horas);
+      const horasExtras = horas > 40 ? horas - 40 : 0;
+
+      const subtotal = (horasNormales * costo) + (horasExtras * costo * 1.5);
+      const ispt = subtotal * 0.10;
+      const total = subtotal - ispt;
+
+      document.getElementById('horasNormales').value = horasNormales;
+      document.getElementById('horasExtras').value = horasExtras;
+      document.getElementById('subtotal').value = subtotal.toFixed(2);
+      document.getElementById('ispt').value = ispt.toFixed(2);
+      document.getElementById('monto').value = total.toFixed(2);
+    });
+  </script>
+
+</body>
+</html>
